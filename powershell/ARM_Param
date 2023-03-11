@@ -1,0 +1,27 @@
+
+
+$location = '[Azure_region]'
+$rgName = 'az104-10-rg0'
+New-AzResourceGroup -Name $rgName -Location $location
+
+
+New-AzResourceGroupDeployment `
+   -ResourceGroupName $rgName `
+   -TemplateFile $HOME/az104-10-vms-edge-template.json `
+   -TemplateParameterFile $HOME/az104-10-vms-edge-parameters.json `
+   -AsJob
+
+
+
+
+$rgName = 'az104-04-rg1'
+
+
+New-AzResourceGroupDeployment `
+   -ResourceGroupName $rgName `
+   -TemplateFile $HOME/az104-04-vms-loop-template.json `
+   -TemplateParameterFile $HOME/az104-04-vms-loop-parameters.json `
+   -AsJob
+
+
+   nslookup az104-04-vm0.contoso91230.org ns1-33.azure-dns.com

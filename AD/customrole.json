@@ -1,0 +1,13 @@
+{
+  "Name": "Virtual Machine Creator",
+  "IsCustom": true,
+  "Description": "Allows creation of virtual machines within a specific management group.",
+  "Actions": [
+    "Microsoft.Compute/virtualMachines/write"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/providers/Microsoft.Management/managementGroups/management-test",
+    "/subscriptions/618adcab-0cb4-4f71-af06-270a0ce0f665"
+  ]
+}
